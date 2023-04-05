@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  main:
+    allow-circular-references: true
+  cloud:
+    loadbalancer:
+      ribbon:
+        # Not needed since we excluded the dependency, but
+        # still good to add it here for better readability
+        enabled: false
+    consul:
+      host: consul
+      port: 8500
+      enabled: true
+      discovery:
+        # Get only services that are passing the health check
+        query-passing: true
+        healthCheckCriticalTimeOut: 30s
+        healthCheckPath: /health
+  r2dbc:
+    url: r2dbc:postgresql://db:5432/testgateway
+    username: postgres
+    password: password
+jwt:
+  secret: EUNESEUNESEUNESEUNESEUNESEUNESEUNESEUNESEUNESEUNES
+  expires: 480
