@@ -14,7 +14,7 @@ spring:
         # still good to add it here for better readability
         enabled: false
     consul:
-      host: consul
+      host: localhost
       port: 8500
       enabled: true
       discovery:
@@ -23,7 +23,7 @@ spring:
         healthCheckCriticalTimeOut: 30s
         healthCheckPath: /health
   r2dbc:
-    url: r2dbc:postgresql://db:5432/testgateway
+    url: r2dbc:postgresql://localhost:5432/testgateway
     username: postgres
     password: password
 jwt:
